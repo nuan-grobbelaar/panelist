@@ -1,0 +1,34 @@
+// Center content using flex
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Apply a fluid container with max-width
+@mixin container($max-width: 1200px) {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-md;
+}
+
+// Apply a shadow style
+@mixin card-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  } @else if $level == 2 {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  } @else if $level == 3 {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
+}
+
+// Text truncation (ellipsis)
+@mixin truncate($lines: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}

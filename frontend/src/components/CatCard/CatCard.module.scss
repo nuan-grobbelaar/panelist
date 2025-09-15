@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.card {
+  background: $color-bg;
+  border: 1px solid $color-muted;
+  border-radius: $border-radius-lg;
+  padding: $space-md;
+  margin: $space-sm 0;
+
+  @include card-shadow(1);
+
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    @include card-shadow(2);
+  }
+}
+
+.name {
+  font-size: $font-size-lg;
+  margin-bottom: $space-xs;
+  color: $color-text;
+}
+
+.detail {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
