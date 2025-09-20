@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    platform: linux/arm64
     container_name: panelist
     ports:
       - "3000:3000"

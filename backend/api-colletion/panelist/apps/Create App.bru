@@ -1,0 +1,56 @@
+meta {
+  name: Create App
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/api/apps/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "budget",
+    "collection": [{
+      "name": "expenses",
+      "schema": {
+        "timestamp": {
+          "type": "Date",
+          "required": true
+        },
+        "note": {
+          "type": "String",
+          "required": false
+        },
+        "amount": {
+          "type": "Number",
+          "required": true
+        },
+        "category": {
+          "type": "String",
+          "ref": "categories",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "categories",
+      "schema": {
+        "name": {
+          "type": "String",
+          "required": true
+        },
+        "color": {
+          "type": "String",
+          "required": false
+        }
+      }
+    }]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

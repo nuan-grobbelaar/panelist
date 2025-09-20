@@ -1,0 +1,50 @@
+meta {
+  name: Get App Data
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/data/:app/datasource/:datasource
+  body: json
+  auth: inherit
+}
+
+params:path {
+  app: budget
+  datasource: expenses
+}
+
+body:json {
+  {
+    "filter": {
+      "and": [
+        {
+          "condition": {
+            "field": "amount",
+            "operator": "$gte",
+            "value": 12.0
+          }
+        },
+        {
+          "condition": {
+            "field": "note",
+            "operator": "$eq",
+            "value": "nail polish"
+          }
+        }
+      ]
+    },
+    "limit": 50,
+    "skip": 0,
+    "project": [
+      "timestamp",
+      "amount",
+      "note"
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

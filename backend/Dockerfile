@@ -1,10 +1,10 @@
-FROM node:20
+FROM --platform=linux/arm64 node:20
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --arch=arm64 --build-from-source
 
 COPY . .
 
