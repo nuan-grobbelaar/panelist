@@ -1,0 +1,40 @@
+meta {
+  name: Update Frame
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://localhost:3000/api/frames/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 68d03abf2a18299cac8f61db
+}
+
+body:json {
+  {
+    "name": "test2",
+    "active": true,
+    "mobile": false,
+    "columns": 6,
+    "rows": 6,
+    "panels": [
+      {
+        "panel": "68cfbc452c72ea78aad627d1",
+        "position": {
+          "colStart": 2,
+          "rowStart": 2,
+          "colEnd": 4,
+          "rowEnd": 4
+        }
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

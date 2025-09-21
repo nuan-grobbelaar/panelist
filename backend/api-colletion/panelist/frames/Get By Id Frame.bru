@@ -1,0 +1,19 @@
+meta {
+  name: Get By Id Frame
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:3000/api/frames/findById/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 68d03abf2a18299cac8f61db
+}
+
+settings {
+  encodeUrl: true
+}

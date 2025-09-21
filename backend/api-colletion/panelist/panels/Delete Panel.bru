@@ -1,0 +1,19 @@
+meta {
+  name: Delete Panel
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:3000/api/panels/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 68cfbc452c72ea78aad627d1
+}
+
+settings {
+  encodeUrl: true
+}

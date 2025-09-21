@@ -1,0 +1,32 @@
+meta {
+  name: Create Component Template
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/components/templates
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "linechart",
+    "propertyDefinition": {
+      "xAxisLabel": {
+        "required": false,
+        "type": "string"
+      },
+      "yAxisLabel": {
+        "required": false,
+        "type": "string"
+      }
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

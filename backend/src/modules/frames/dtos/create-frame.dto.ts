@@ -57,3 +57,5 @@ export class CreateFrameDto {
   @ArrayMinSize(1)
   panels: FramePanelDto[];
 }
+
+export class CreateComponentDto {}

@@ -1,13 +1,17 @@
 meta {
-  name: Create Panel
+  name: Update Panel
   type: http
-  seq: 1
+  seq: 2
 }
 
-post {
-  url: http://localhost:3000/api/panels
+put {
+  url: http://localhost:3000/api/panels/:id
   body: json
   auth: inherit
+}
+
+params:path {
+  id: 68cfbc452c72ea78aad627d1
 }
 
 body:json {

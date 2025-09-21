@@ -5,29 +5,19 @@ meta {
 }
 
 post {
-  url: http://localhost:3000/api/frames/create
+  url: http://localhost:3000/api/frames
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "name": "test",
+    "name": "test2",
     "active": true,
-    "mobile": true,
-    "columns": 4,
-    "rows": 17,
-    "panels": [
-      {
-        "panel": "68cfbc452c72ea78aad627d1",
-        "position": {
-          "colStart": 2,
-          "rowStart": 2,
-          "colEnd": 4,
-          "rowEnd": 4
-        }
-      }
-    ]
+    "mobile": false,
+    "columns": 7,
+    "rows": 7,
+    "panels": []
   }
 }
 

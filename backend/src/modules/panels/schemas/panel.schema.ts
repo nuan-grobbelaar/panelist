@@ -52,6 +52,9 @@ export class Panel {
   @Prop()
   columns: number;
 
+  @Prop()
+  rows: number;
+
   @Prop({
     type: Map,
     of: DatasourceSchema,

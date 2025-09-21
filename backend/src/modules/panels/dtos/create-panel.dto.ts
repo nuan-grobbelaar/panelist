@@ -59,6 +59,9 @@ export class CreatePanelDto {
   @IsNumber()
   columns: number;
 
+  @IsNumber()
+  rows: number;
+
   @IsOptional()
   @ValidateNested({ each: true })
   @Type(() => DatasourceDto)

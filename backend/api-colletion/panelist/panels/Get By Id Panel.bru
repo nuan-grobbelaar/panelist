@@ -1,0 +1,19 @@
+meta {
+  name: Get By Id Panel
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:3000/api/panels/findById/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 68cfbc452c72ea78aad627d1
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get By Id Component
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:3000/api/components/findById/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 68cfb965f89b33bcb0a74137
+}
+
+settings {
+  encodeUrl: true
+}

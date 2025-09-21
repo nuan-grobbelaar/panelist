@@ -1,0 +1,19 @@
+meta {
+  name: Delete App
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:3000/api/apps/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 68cfbc9d2c72ea78aad627d9
+}
+
+settings {
+  encodeUrl: true
+}
