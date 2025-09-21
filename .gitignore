@@ -45,3 +45,6 @@ public/static/
 */public/*
 !/public/.gitkeep
 
+# Ignore only root package.json and package-lock.json
+/package.json
+/package-lock.json
