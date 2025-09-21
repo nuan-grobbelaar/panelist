@@ -1,0 +1,60 @@
+meta {
+  name: Create Panel
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/panels/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "rows": 1,
+    "columns": 1,
+    "name": "months",
+    "datasources": {
+      "colours": {
+        "datasourceApp": "budget",
+        "datasourceQuery": {
+          "collection": "categories",
+          "groupBy": {
+            "field": "name",
+            "target": "colour"
+          }
+        }
+      },
+      "default": {
+        "datasourceApp": "budget",
+        "datasourceQuery": {
+          "collection": "expenses",
+          "groupBy": {
+            "field": "timestamp",
+            "granularity": "month",
+            "then": {
+              "field": "category",
+              "target": "amount"
+            }
+          }
+        }
+      }
+    },
+    "components": [
+      {
+        "component": "68cfb965f89b33bcb0a74137",
+        "position": {
+          "colStart": 1,
+          "rowStart": 1,
+          "colEnd": 5,
+          "rowEnd": 5
+        }
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

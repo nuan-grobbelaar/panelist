@@ -1,7 +1,8 @@
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Frame } from './schemas/frame.schema';
+import { CreateFrameDto, FramePanelDto } from "./dtos/create-frame.dto";
 
 export enum FramePopulateLevel {
   TEMPLATE = 'template',
@@ -13,10 +14,21 @@ export enum FramePopulateLevel {
 export class FrameService {
   constructor(@InjectModel(Frame.name) private frameModel: Model<Frame>) {}
 
-  // async create(createCatDto: CreateCatDto): Promise<Cat> {
-  //   const createdCat = new this.catModel(createCatDto);
-  //   return createdCat.save();
-  // }
+  async create(createFrameDto: CreateFrameDto): Promise<Frame> {
+    const panelsWithObjectId = createFrameDto.panels.map(
+      (panelDto: FramePanelDto) => ({
+        ...panelDto,
+        panel: new Types.ObjectId(panelDto.panel),
+      }),
+    );
+
+    const createdFrame = new this.frameModel({
+      ...createFrameDto,
+      panels: panelsWithObjectId,
+    });
+
+    return createdFrame.save();
+  }
 
   async findAll(populateLevel?: FramePopulateLevel): Promise<Frame[]> {
     let populateOption = undefined;

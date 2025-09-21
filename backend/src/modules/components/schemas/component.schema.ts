@@ -6,7 +6,7 @@ export type ComponentDocument = HydratedDocument<Component>;
 
 @Schema()
 export class Component {
-  @Prop()
+  @Prop({ unique: true })
   name: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'ComponentTemplate' })

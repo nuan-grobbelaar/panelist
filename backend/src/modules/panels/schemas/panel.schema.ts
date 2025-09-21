@@ -5,6 +5,29 @@ import { Component } from '../../components/schemas/component.schema';
 export type PanelDocument = HydratedDocument<Panel>;
 
 @Schema({ _id: false })
+class DatasourceQuery {
+  @Prop()
+  collection: string;
+
+  @Prop({ type: Object }) // flexible, can refine further if needed
+  groupBy?: Record<string, any>;
+}
+
+export const DatasourceQuerySchema =
+  SchemaFactory.createForClass(DatasourceQuery);
+
+@Schema({ _id: false })
+class Datasource {
+  @Prop()
+  datasourceApp: string;
+
+  @Prop({ type: DatasourceQuerySchema })
+  datasourceQuery: DatasourceQuery;
+}
+
+export const DatasourceSchema = SchemaFactory.createForClass(Datasource);
+
+@Schema({ _id: false })
 class PanelComponent {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Component' })
   component: Component;
@@ -29,8 +52,11 @@ export class Panel {
   @Prop()
   columns: number;
 
-  // @Prop()
-  // datasources: {};
+  @Prop({
+    type: Map,
+    of: DatasourceSchema,
+  })
+  datasources: Map<string, Datasource>;
 
   @Prop({ type: [PanelComponentSchema] })
   components: PanelComponent[];
